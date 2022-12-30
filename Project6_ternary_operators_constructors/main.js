@@ -11,4 +11,9 @@ function myFunction() {
     document.getElementById("Keywords_and_Constructors").innerHTML = "Erik drives a " + Erik.Vehicle_Color + "-colored " + Erik.Vehicle_Model + " manufactured in " + Erik.Vehicle_Year;
 }
 
-document.write(Bigger = (10 > 5) ? "Left number is bigger":"Right number is bigger");
+function Money_Function() {
+    var Amount, Can_afford;
+    Amount = document.getElementById("Amount").value;
+    Can_afford = (Amount < 5000) ? "You don't have enough money":"You have enough money";
+    document.getElementById("Buy").innerHTML = Can_afford + " to buy this.";
+}
