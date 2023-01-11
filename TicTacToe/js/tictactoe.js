@@ -123,7 +123,7 @@ function disableClick() {
 //placement sound('./media/place.mp3')
 function audio(audioURL) {
     //We create a new audio object and we pass the path as a parameter.
-    let audio = newAudio(audioURL);
+    let audio = new Audio(audioURL);
     //Play method plays our audio sound.
     audio.play();
 }
@@ -145,7 +145,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         //This variable stores temporary x axis data we update in our animation loop.
         x = x1,
         //This variable stores temporary y axis data we update in our animation loop.
-    y = y1;
+        y = y1;
     //This function interacts with the canvas.
     function animateLineDrawing() {
         //This variable creates a loop.
@@ -199,4 +199,17 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     animateLineDrawing();
     //This line waits 1 second. Then, clears canvas, resets game, allows clicking again.
     setTimeout(function () { clear(); resetGame(); }, 1000);
+}
+
+//This function resets the game in the event of a tie or win.
+function resetGame() {
+    //This for loop iterates through each HTML square element.
+    for (let i = 0; i < 9; i++) {
+        //This variable gets the HTML element i.
+        let square = document.getElementById(String(i));
+        //This removes our elements backgroundImage.
+        square.style.backgroundImage = '';
+    }
+    //This resets our array so it is empty and we can start over.
+    selectedSquares = [];
 }
